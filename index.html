@@ -2682,21 +2682,36 @@ function initBlockly(){
   M['CONTROLS_REPEAT_INPUT_DO'] = 'do';
   Blockly.defineBlocksWithJsonArray(BLOCK_DEFS);
 
-  var theme = null;
-  try {
-    theme = Blockly.Theme.defineTheme('dronecode', {
-      base: Blockly.Themes.Classic,
-      componentStyles:{
-        workspaceBackgroundColour:'#ffffff', toolboxBackgroundColour:'#fbfbfd',
-        toolboxForegroundColour:'#1d1d1f', flyoutBackgroundColour:'#f5f5f7',
-        flyoutForegroundColour:'#6e6e73', flyoutOpacity:1,
-        scrollbarColour:'#c7c7cc', scrollbarOpacity:0.8,
-        insertionMarkerColour:'#0071e3', insertionMarkerOpacity:0.5,
-        markerColour:'#0071e3', cursorColour:'#0071e3'
-      },
-      fontStyle:{ family:"-apple-system,'SF Pro Text','Sukhumvit Set','Thonburi','Noto Sans Thai',Arial,sans-serif", weight:'500', size:12 }
-    });
-  } catch(e){ theme = null; }
+var theme = null;
+try {
+  theme = Blockly.Theme.defineTheme('dronecode', {
+    base: Blockly.Themes.Classic,
+    categoryStyles: {
+      'flight_category': { 'colour': '#34c759' },    /* Green */
+      'movement_category': { 'colour': '#0071e3' },  /* Blue */
+      'rotation_category': { 'colour': '#5856d6' },  /* Purple */
+      'lights_category': { 'colour': '#ff9500' },    /* Orange */
+      'sensors_category': { 'colour': '#30b0c7' },   /* Teal */
+      'logic_category': { 'colour': '#64d2ff' },     /* Light Blue */
+      'loops_category': { 'colour': '#af52de' },     /* Violet */
+      'math_category': { 'colour': '#ff2d55' },      /* Pink/Red */
+      'text_category': { 'colour': '#a2845e' },      /* Brown */
+      'variables_category': { 'colour': '#5ac8fa' }, /* Cyan */
+      'functions_category': { 'colour': '#8e8e93' }  /* Grey */
+    },
+    componentStyles: {
+      workspaceBackgroundColour: '#ffffff',
+      toolboxBackgroundColour: '#fafafc',
+      toolboxForegroundColour: '#1d1d1f',
+      flyoutBackgroundColour: '#f5f5f7',
+      flyoutForegroundColour: '#1d1d1f',
+      scrollbarColour: '#d1d1d6',
+      scrollbarOpacity: 0.6,
+      insertionMarkerColour: '#0071e3',
+      insertionMarkerOpacity: 0.4
+    }
+  });
+} catch(e){ theme = null; }
 
   var opts = {
     toolbox: TOOLBOX, renderer:'zelos', sounds:false, trashcan:true,
