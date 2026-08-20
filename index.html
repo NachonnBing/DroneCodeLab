@@ -272,6 +272,59 @@ body.rotated #sheetBackdrop{display:none!important}
   .blocklyFlyoutScrollbar {
     display: none !important;
   }
+
+  /* Scratch-style rounded Flyout Flyout background */
+.blocklyFlyoutBackground {
+  fill: #f5f5f7 !important;
+  fill-opacity: 0.95 !important;
+  rx: 16px !important;
+  ry: 16px !important;
+  stroke: none !important;
+}
+
+/* Remove ugly SVG lines & borders */
+.blocklyFlyoutLine {
+  display: none !important;
+}
+
+/* Redesign scrollbars to be thin, subtle rounded bars (Scratch-style) */
+.blocklyScrollbarHandle {
+  fill: #d1d1d6 !important;
+  rx: 4px !important;
+  ry: 4px !important;
+  opacity: 0.7 !important;
+  transition: opacity 0.2s ease, fill 0.2s ease;
+}
+
+.blocklyScrollbarHandle:hover {
+  fill: #a1a1a6 !important;
+  opacity: 1 !important;
+}
+
+.blocklyScrollbarBackground {
+  display: none !important;
+}
+
+/* Toolbox category hover & selected styling */
+.blocklyTreeRow {
+  border-radius: 8px !important;
+  margin: 2px 6px !important;
+  padding: 6px 10px !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.blocklyTreeRow:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.blocklyTreeSelected {
+  background-color: rgba(0, 113, 227, 0.12) !important;
+}
+
+.blocklyTreeSelected .blocklyTreeLabel {
+  color: #0071e3 !important;
+  font-weight: 600 !important;
+}
 </style>
 </head>
 <body class="mode-wide view-code">
