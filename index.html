@@ -305,25 +305,57 @@ body.rotated #sheetBackdrop{display:none!important}
   display: none !important;
 }
 
-/* Toolbox category hover & selected styling */
+/* Fix alignment & Micro:bit category tab styling */
 .blocklyTreeRow {
-  border-radius: 8px !important;
-  margin: 2px 6px !important;
-  padding: 6px 10px !important;
-  transition: background-color 0.15s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  margin: 3px 0 !important;
+  padding: 0 12px !important;
+  border-radius: 0 18px 18px 0 !important; /* Full span pill shape */
+  border-left: 6px solid transparent !important; /* Color bar on left edge */
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.blocklyTreeRow:hover {
+/* Color bar container spacing fix */
+.blocklyTreeIcon {
+  display: none !important; /* Removes default Blockly icon spacing misalignment */
+}
+
+/* Label styling: Matches category color by default */
+.blocklyTreeLabel {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding-left: 8px !important;
+  vertical-align: middle !important;
+}
+
+/* Selected state (Micro:bit style): Full row background color with white text */
+.blocklyTreeRow.blocklyTreeSelected {
+  background-color: var(--category-color, #0071e3) !important;
+}
+
+.blocklyTreeRow.blocklyTreeSelected .blocklyTreeLabel {
+  color: #ffffff !important;
+}
+
+/* Hover state when unselected */
+.blocklyTreeRow:not(.blocklyTreeSelected):hover {
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
-.blocklyTreeSelected {
-  background-color: rgba(0, 113, 227, 0.12) !important;
+/* Control Bar Fix: Force 1 line on iPad / Portrait screens */
+#controlbar {
+  flex-wrap: nowrap !important; /* Prevents controls from dropping to line 2 */
+  overflow-x: auto !important; /* Enables smooth horizontal scroll if tight */
+  white-space: nowrap !important;
+  -webkit-overflow-scrolling: touch;
 }
 
-.blocklyTreeSelected .blocklyTreeLabel {
-  color: #0071e3 !important;
-  font-weight: 600 !important;
+#controlbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar track on iPad for clean look */
 }
 </style>
 </head>
